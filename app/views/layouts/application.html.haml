@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %title Go
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
+    = javascript_include_tag "game"
+    = csrf_meta_tags
+  %body
+    #nav
+      - if @current_user
+        %ul
+          %li= my_turn_games_link
+          %li= my_games_link
+          %li= open_games_link
+          %li= all_games_link
+          %li= new_game_link
+          %li= link_to "Log out", "/logout"
+      - else
+        Who are you?
+        
+    #contents
+      %p#notice= notice
+      = yield

@@ -1,0 +1,21 @@
+%table#game{ :class => my_turn }
+  %tr
+    %td
+    - (1..19).each do |label|
+      %td= label
+  - @game.grid.each_with_index do |r, row|
+    %tr
+      %td= row + 1
+      - r.each_with_index do |point, col|
+        %td.point{ :style => (background_property point, row, col),
+                   :data => { :coords => "#{col + 1} #{row + 1}" } }
+
+- if @game.turn == @current_user
+  %p= link_to "Pass", "javascript:post_hyphen_move('pass');"
+
+%p
+  %b White:
+  = @game.white_player or link_to "Join", "/games/#{@game.id}/join/white"
+  %br
+  %b Black:
+  = @game.black_player or link_to "Join", "/games/#{@game.id}/join/black"

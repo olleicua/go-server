@@ -1,0 +1,17 @@
+%h1 Open games
+
+= render :partial => 'game_list', :locals => { :list => @games_open }
+
+%br
+
+%h1 Games in Progress
+
+= render :partial => 'game_list', :locals => { :list => @games_in_progress }
+
+%br
+
+%h1 Finished games
+
+= render :partial => 'game_list', :locals => { :list => @games_finished }
+
+%br

@@ -1,0 +1,14 @@
+%table.games
+  - if list.empty?
+    %tr
+      %td None found
+  - else
+    %tr
+      %th White
+      %th Black
+      %th.no_border
+    - list.each do |game|
+      %tr
+        %td= game.white_player
+        %td= game.black_player
+        %td= link_to 'Show', game

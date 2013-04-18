@@ -1,0 +1,33 @@
+// Place all the styles related to the Games controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+table.games {
+	border-bottom: 1px solid #000;
+	border-left: 1px solid #000;
+	
+	td, th {
+		padding: 0.4em;
+		border-top: 1px solid #000;
+		border-right: 1px solid #000;
+		&.no_border {
+			border: none;
+		}
+	}
+}
+
+table#game {
+	
+	&.my_turn td.point {
+		cursor: pointer;
+	}
+	
+    td {
+		font-size: 9px;
+		height: 16px;
+		width: 16px;
+		line-height: 16px;
+		padding: 0;
+		margin: 0;
+	}
+}

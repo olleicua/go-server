@@ -1,0 +1,3 @@
+%h1= "#{@current_user}'s turn games"
+
+= render :partial => 'game_list', :locals => { :list => @current_user.myTurnGames }
