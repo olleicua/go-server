@@ -39,7 +39,7 @@ class GamesController < ApplicationController
   end
   
   def new
-    @game = Game.new [:black_player, :white_player].choice => @current_user
+    @game = Game.new [:black_player, :white_player][rand 2] => @current_user
     @game.save
     redirect_to "/games/#{@game.id}"
   end
