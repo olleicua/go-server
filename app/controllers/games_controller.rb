@@ -18,6 +18,7 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    redirect_to '/games' if @game.nil?
   end
   
   def join
@@ -34,13 +35,13 @@ class GamesController < ApplicationController
       flash[:notice] = "ERROR"
     end
     
-    redirect_to @game
+    redirect_to "/games/#{@game.id}"
   end
   
   def new
     @game = Game.new [:black_player, :white_player].choice => @current_user
     @game.save
-    redirect_to @game
+    redirect_to "/games/#{@game.id}"
   end
   
   def move
